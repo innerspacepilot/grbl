@@ -63,9 +63,9 @@
   #define X_LIMIT_BIT      1  // Uno Digital Pin 9
   #define Y_LIMIT_BIT      2  // Uno Digital Pin 10
   #ifdef VARIABLE_SPINDLE // Z Limit pin and spindle enabled swapped to access hardware PWM on Pin 11.
-    #define Z_LIMIT_BIT	   4 // Uno Digital Pin 12
+    #define Z_LIMIT_BIT	   2 // Uno Digital Pin 12
   #else
-    #define Z_LIMIT_BIT    3  // Uno Digital Pin 11
+    #define Z_LIMIT_BIT    2  // Uno Digital Pin 11
   #endif
   #if !defined(ENABLE_DUAL_AXIS)
     #define LIMIT_MASK     ((1<<X_LIMIT_BIT)|(1<<Y_LIMIT_BIT)|(1<<Z_LIMIT_BIT)) // All limit bits
@@ -113,12 +113,12 @@
     #ifdef VARIABLE_SPINDLE
       #ifdef USE_SPINDLE_DIR_AS_ENABLE_PIN
         // If enabled, spindle direction pin now used as spindle enable, while PWM remains on D11.
-        #define SPINDLE_ENABLE_BIT    5  // Uno Digital Pin 13 (NOTE: D13 can't be pulled-high input due to LED.)
+        #define SPINDLE_ENABLE_BIT    3  // Uno Digital Pin 13 (NOTE: D13 can't be pulled-high input due to LED.)
       #else
         #define SPINDLE_ENABLE_BIT    3  // Uno Digital Pin 11
       #endif
     #else
-      #define SPINDLE_ENABLE_BIT    4  // Uno Digital Pin 12
+      #define SPINDLE_ENABLE_BIT    3  // Uno Digital Pin 12
     #endif
     #ifndef USE_SPINDLE_DIR_AS_ENABLE_PIN
       #define SPINDLE_DIRECTION_DDR   DDRB
@@ -150,7 +150,7 @@
     // NOTE: On the 328p, these must be the same as the SPINDLE_ENABLE settings.
     #define SPINDLE_PWM_DDR   DDRB
     #define SPINDLE_PWM_PORT  PORTB
-    #define SPINDLE_PWM_BIT   12    // Uno Digital Pin 11
+    #define SPINDLE_PWM_BIT   3    // Uno Digital Pin 11
   
   #else
 
